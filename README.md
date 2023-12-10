@@ -1,7 +1,9 @@
 # Building a Fullstack application with the MERN stack along with Socket.Io and React Three Fiber
 
 
-This is a repository for a a project utilizing the MERN stack along with Socket.IO and React Three Fiber
+This is a repository for a  project utilizing the MERN stack along with Socket.IO and React Three Fiber
+
+![Screenshot 2023-12-10 233511](https://github.com/AlistairM13/r3f_mern/assets/105148183/6d95b701-479b-4935-86c1-fd47b7ad7804)
 
 
 Features:
