@@ -63,3 +63,8 @@ npm run dev
 cd client
 npm start
 ```
+
+### Deployment
+
+Check the project live on [Render](https://mern-three-client.onrender.com/)
+
