@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 app.use(cors({
     origin: "https://mern-three-client.onrender.com",
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST", "PUT"],
     credentials: true
 }));
 

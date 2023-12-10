@@ -27,7 +27,6 @@ function Chip({ z, color = "orange" }) {
         ref.current.rotation.set((data.rX += 0.002), (data.rY += 0.004), (data.rZ += 0.005))
         ref.current.position.set(width * data.x, (data.y -= 0.025), z)
 
-
         if (data.y < -height) data.y = height / 1.5
 
     }, [])
@@ -50,7 +49,7 @@ function Experience({ count = 120, depth = 80 }) {
                 <spotLight position={[10, 10, 10]} intensity={1} />
                 <Environment preset="sunset" />
                 {Array.from({ length: count }, (_, i) =>
-                    <Chip key={i} z={(-i / count) * depth-2} />
+                    <Chip key={i} z={(-i / count) * depth - 5} />
                 )}
                 <EffectComposer>
                     <DepthOfField target={[0, 0, depth / 2]} focalLength={0.5} bokehScale={11} height={700} />

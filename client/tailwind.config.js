@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        kalnia: ['"Kalnia"', ...defaultTheme.fontFamily.serif]
+        merriweather: ['"Merriweather"', ...defaultTheme.fontFamily.serif]
       }
     },
   },
