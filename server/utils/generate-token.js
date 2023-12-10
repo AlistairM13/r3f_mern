@@ -8,7 +8,8 @@ const generateToken = (res, userId) => {
     res.cookie("jwt", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV !== "development",
-        sameSite: "strict",
+        sameSite: "None",
+        domain: "https://mern-three-client.onrender.com",
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
 }
