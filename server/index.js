@@ -18,7 +18,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.use(cors({
-    origin: process.env.CLIENT_URI,
+    origin: "https://mern-three-client.onrender.com",
     methods: ["GET", "POST"],
     credentials: true
 }));
@@ -35,7 +35,7 @@ app.use(errorHandler);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://mern-three-client.vercel.app",
+        origin: "https://mern-three-client.onrender.com",
         methods: ["GET", "POST"],
         credentials: true
     }
