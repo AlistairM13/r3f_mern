@@ -5,11 +5,9 @@ import io from 'socket.io-client'
 import useUserStore from '../../hooks/useUserStore'
 import useChatModal from '../../hooks/useChatModal'
 
-const socket = io("https://mern-three-api.vercel.app/", {
+const socket = io(
+    "https://mern-three-api.vercel.app", {
     withCredentials: true,
-    extraHeaders: {
-        'Access-Control-Allow-Origin': 'https://mern-three-client.vercel.app',
-    },
 })
 
 function Message({ message }) {
