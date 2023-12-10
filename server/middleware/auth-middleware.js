@@ -4,8 +4,7 @@ import asyncHandler from "express-async-handler"
 import User from "../models/user-model.js"
 
 const auth = asyncHandler(async (req, res, next) => {
-    let token
-    token = req.cookies.jwt
+    const token = req.headers.authorization.split(' ')[1]; // Authorization: 'Bearer TOKEN'
 
     if (token) {
         try {

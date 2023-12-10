@@ -3,7 +3,9 @@ import asyncHandler from 'express-async-handler'
 import User from '../models/user-model.js'
 import generateToken from '../utils/generate-token.js'
 
-// 📢 POST /api/users/auth
+// @desc    Login a user
+// @route   POST /api/users/login
+// @access  Public
 const login = asyncHandler(async (req, res) => {
     const { email, password } = req.body
 
@@ -12,12 +14,15 @@ const login = asyncHandler(async (req, res) => {
 
     if (user && (await user.matchPassword(password))) {
 
-        generateToken(res, user._id)
+        const token = generateToken(user._id)
 
         res.status(201).json({
-            id: user._id,
-            username: user.username,
-            email: user.email
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            },
+            token: token
         })
 
     } else {
@@ -28,7 +33,9 @@ const login = asyncHandler(async (req, res) => {
     res.json({ message: "login" })
 })
 
-// 📢 POST /api/users
+// @desc    Register a new user
+// @route   POST /api/users
+// @access  Public
 const register = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body
 
@@ -46,12 +53,15 @@ const register = asyncHandler(async (req, res) => {
     })
 
     if (user) {
-        generateToken(res, user._id)
+        const token = generateToken(user._id)
 
         res.status(201).json({
-            id: user._id,
-            username: user.username,
-            email: user.email
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email,
+            },
+            token: token
         })
 
     } else {
@@ -60,16 +70,10 @@ const register = asyncHandler(async (req, res) => {
     }
 })
 
-// 📢 POST /api/users/logout
-const logout = asyncHandler(async (req, res) => {
-    res.cookie("jwt", "", {
-        httpOnly: true,
-        expires: new Date(0)
-    })
-    res.json({ message: "User logged out" })
-})
 
-// 🔒 GET /api/users/profile
+// @desc    Get user profile
+// @route   GET /api/users/profile
+// @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
     const user = {
         id: req.user.id,
@@ -80,7 +84,9 @@ const getUserProfile = asyncHandler(async (req, res) => {
     res.json(user)
 })
 
-// 🔒 PUT /api/users/profile
+// @desc    Update user profile
+// @route   PUT /api/users/profile
+// @access  Private
 const updateUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user.id)
 
@@ -109,7 +115,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 export {
     login,
     register,
-    logout,
     getUserProfile,
     updateUserProfile
 }

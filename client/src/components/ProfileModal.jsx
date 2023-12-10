@@ -1,17 +1,15 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { X } from "lucide-react"
 import toast from "react-hot-toast"
 
-import useAuthModal from "../../hooks/useAuthModal"
 import useUserStore from '../../hooks/useUserStore'
-import { updateUserProfile, login, register } from "../../actions/user-actions"
+import { updateUserProfile } from "../../actions/user-actions"
 import useProfileModal from "../../hooks/useProfileModal"
 
 export default function ProfileModal() {
     const { isOpen, onClose } = useProfileModal()
     const [wantsToChangePassword, setWantsToChangePassword] = useState(false)
-    const { user: userFromStore, setUser: setUserToStore } = useUserStore()
+    const { user: userFromStore, token, setUser: setUserToStore } = useUserStore()
 
     const [user, setUser] = useState({ username: userFromStore?.username || "", email: userFromStore?.email || "", password: "" })
 
@@ -23,7 +21,7 @@ export default function ProfileModal() {
     async function submitForm(event) {
         event.preventDefault()
         try {
-            const response = await updateUserProfile(user)
+            const response = await updateUserProfile(user, token)
             setUserToStore(response.data)
         } catch (err) {
             let error = "Something went wrong"

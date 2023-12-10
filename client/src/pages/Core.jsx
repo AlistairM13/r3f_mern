@@ -23,7 +23,7 @@ function Core() {
           <Navbar />
           <div className="h-full flex justify-center items-center">
             {isChatOpen && <ChatBox />}
-            {!user && <h1 className="font-kalnia text-center  font-medium text-4xl" >Join the<br />community</h1>}
+            {!user && <h1 className="font-kalnia text-center font-merriweather font-bold text-4xl" >Join the<br />community</h1>}
             {user && !isChatOpen && <h1 className="font-merriweather text-center  font-black text-4xl" ><span className="font-normal text-3xl">Welcome,</span><br /> {user.username}</h1>}
           </div>
         </div>

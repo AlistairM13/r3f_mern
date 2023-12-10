@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState } from 'react'
 import { X } from "lucide-react"
 import toast from "react-hot-toast"
@@ -9,7 +8,7 @@ import { login, register } from "../../actions/user-actions"
 
 export default function AuthModal() {
   const { isOpen, onClose } = useAuthModal()
-  const { setUser: setUserToStore } = useUserStore()
+  const { setUser: setUserToStore, setToken } = useUserStore()
 
   const [isLogin, setIsLogin] = useState(true)
   const [user, setUser] = useState({ username: "", email: "", password: "" })
@@ -28,7 +27,8 @@ export default function AuthModal() {
       } else {
         userResponse = await register(user)
       }
-      setUserToStore(userResponse.data)
+      setUserToStore(userResponse.data.user)
+      setToken(userResponse.data.token)
     } catch (err) {
       let error = "Something went wrong"
       if (err.name === "AxiosError") {
@@ -41,7 +41,7 @@ export default function AuthModal() {
   }
   return (
     <>
-      <div className="fixed h-full w-full  top-0 left-0 z-20 bg-black/50 backdrop-blur-sm" onClick={onClose}/>
+      <div className="fixed h-full w-full  top-0 left-0 z-20 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       <div className="fixed h-full w-full top-0 left-0 z-20 flex justify-center items-center" open={isOpen} onClose={onClose}>
         <form className="bg-white rounded-t-3xl p-4  w-full h-fit md:rounded-3xl md:p-8 md:w-1/3 flex  flex-col justify-center gap-2 self-end md:self-auto">
           <div className="mb-3 mt-2 flex justify-between items-center">

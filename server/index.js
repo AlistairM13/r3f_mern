@@ -1,7 +1,6 @@
 import express from 'express';
 import http from 'http';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { Server } from 'socket.io';
 
@@ -25,7 +24,6 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 app.use('/api/users', userRoutes);
 
