@@ -35,6 +35,7 @@ app.use(errorHandler);
 const io = new Server(server, {
     cors: {
         origin: process.env.CLIENT_URI,
+        methods: ["GET", "POST"],
         credentials: true
     }
 });
