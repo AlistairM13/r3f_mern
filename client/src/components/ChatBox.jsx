@@ -5,7 +5,7 @@ import io from 'socket.io-client'
 import useUserStore from '../../hooks/useUserStore'
 import useChatModal from '../../hooks/useChatModal'
 
-const socket = io("http://localhost:5000", { withCredentials: true })
+const socket = io("https://mern-three-api.vercel.app/", { withCredentials: true })
 
 function Message({ message }) {
     return (
