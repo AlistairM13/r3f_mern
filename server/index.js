@@ -35,7 +35,7 @@ app.use(errorHandler);
 
 const io = new Server(server, {
     cors: {
-        origin: process.env.CLIENT_URI,
+        origin: "https://mern-three-client.vercel.app",
         methods: ["GET", "POST"],
         credentials: true
     }
