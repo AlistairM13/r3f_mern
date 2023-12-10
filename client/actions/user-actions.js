@@ -1,5 +1,5 @@
 import axios from "axios"
-const BASE_URL = "https://mern-three-api.vercel.app/api"
+const BASE_URL = "https://mern-three-api.onrender.com/api"
 
 export const register = async (userData) => {
     return axios.post(

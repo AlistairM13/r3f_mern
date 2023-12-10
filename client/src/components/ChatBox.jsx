@@ -6,7 +6,7 @@ import useUserStore from '../../hooks/useUserStore'
 import useChatModal from '../../hooks/useChatModal'
 
 const socket = io(
-    "https://mern-three-api.vercel.app", {
+    "https://mern-three-api.onrender.com", {
     withCredentials: true,
 })
 
