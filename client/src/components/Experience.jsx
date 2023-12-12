@@ -35,14 +35,14 @@ function Chip({ z }) {
     )
 }
 
-function Experience({ count = 200, depth = 80 }) {
+function Experience({ count = 120, depth = 80 }) {
     return (
-        <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 200, fov: 30 }}>
+        <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 120, fov: 30 }}>
             <color attach="background" args={["#fce49f"]} />
             <Suspense fallback={null}>
                 <Environment preset="sunset" />
                 {Array.from({ length: count }, (_, i) =>
-                    <Chip key={i} z={(-i / count) * depth - 7} />
+                    <Chip key={i} z={(-i / count) * depth - 10} />
                 )}
             </Suspense>
         </Canvas>
