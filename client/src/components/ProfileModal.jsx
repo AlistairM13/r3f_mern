@@ -3,7 +3,7 @@ import { X } from "lucide-react"
 import toast from "react-hot-toast"
 
 import useUserStore from '../../hooks/useUserStore'
-import { updateUserProfile } from "../../actions/user-actions"
+import { updateUserProfile } from "../../actions/userActions"
 import useProfileModal from "../../hooks/useProfileModal"
 
 export default function ProfileModal() {

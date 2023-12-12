@@ -4,7 +4,7 @@ import toast from "react-hot-toast"
 
 import useAuthModal from "../../hooks/useAuthModal"
 import useUserStore from '../../hooks/useUserStore'
-import { login, register } from "../../actions/user-actions"
+import { login, register } from "../../actions/userActions"
 
 export default function AuthModal() {
   const { isOpen, onClose } = useAuthModal()

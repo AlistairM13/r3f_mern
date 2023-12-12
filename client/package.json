@@ -12,7 +12,6 @@
   "dependencies": {
     "@react-three/drei": "^9.90.1",
     "@react-three/fiber": "^8.15.12",
-    "@react-three/postprocessing": "^2.15.11",
     "@types/three": "^0.159.0",
     "axios": "^1.6.2",
     "lucide-react": "^0.294.0",
